@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
-    content="Mohammed Raees is a Flutter developer based in Cairo, Egypt, specializing in clean architecture, Bloc state management, and offline-first mobile applications.">
+    content="I'm a Flutter developer based in Cairo, Egypt, specializing in clean architecture, Bloc state management, and offline-first mobile applications.">
   <title>Mohammed Raees | Flutter Developer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -197,8 +197,20 @@
     .project-date { font-family: var(--font-mono); font-size: 0.92rem; color: var(--text-secondary); white-space: nowrap; }
     .project-description { margin: 0; color: var(--text-secondary); }
     .project-points { margin: 0; padding-left: 1.2rem; color: var(--text-primary); display: grid; gap: var(--space-2); }
-    .project-link, .contact-link { color: var(--accent); }
+    .project-actions-row { display: flex; align-items: center; gap: var(--space-4); margin-top: var(--space-2); }
+    .project-link, .contact-link { color: var(--accent); background: none; border: none; padding: 0; font: inherit; cursor: pointer; display: inline-block; }
     .project-link:hover, .contact-link:hover { text-decoration: underline; text-underline-offset: 0.18em; }
+    
+    /* MODAL STYLES */
+    .modal-overlay { position: fixed; inset: 0; z-index: 100; background: var(--bg-card-soft); backdrop-filter: blur(12px); display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: opacity var(--transition), visibility var(--transition); padding: var(--space-4); }
+    .modal-overlay.is-open { opacity: 1; visibility: visible; }
+    .modal-content { position: relative; width: 100%; max-width: 900px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); box-shadow: 0 24px 60px var(--shadow-elevated), 0 0 40px var(--shadow-accent); overflow: hidden; transform: translateY(20px); transition: transform var(--transition); }
+    .modal-overlay.is-open .modal-content { transform: translateY(0); }
+    .modal-close { position: absolute; top: var(--space-4); right: var(--space-4); z-index: 10; width: 2.5rem; height: 2.5rem; border: 1px solid var(--border); border-radius: var(--radius-full); background: rgba(0, 0, 0, 0.5); backdrop-filter: blur(4px); color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all var(--transition); }
+    .modal-close:hover { background: var(--accent); color: var(--btn-hover-text); border-color: var(--accent); }
+    .modal-close svg { width: 1.25rem; height: 1.25rem; fill: currentColor; }
+    .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 100%; background: #000; }
+    .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
     .credentials-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr); gap: var(--space-8); }
     .credentials-stack { display: grid; gap: var(--space-6); }
@@ -294,7 +306,6 @@
     </header>
 
     <main>
-      <!-- HERO -->
       <section class="hero reveal is-visible" id="top">
         <div class="container">
           <div class="hero-layout">
@@ -303,7 +314,8 @@
               <h1 class="hero-title">Mohammed<br>Raees</h1>
               <p class="hero-subtitle">Flutter Developer / Cairo, Egypt</p>
               <p class="hero-tagline"><span class="typing-line" id="typing-text" aria-live="polite"></span></p>
-<p class="hero-bio">Flutter developer focused on building scalable, production-ready mobile applications with clean architecture, Bloc state management, and offline-first design. Experienced in delivering real-world apps across Egypt’s public transit network through two consecutive summers at TransIT.</p>              <div class="badge-row" aria-label="Core badges">
+              <p class="hero-bio">Flutter developer focused on scalable, production-ready mobile apps with BLoC state management, Clean Architecture, and offline-first design. Currently open to full-time opportunities.</p>
+              <div class="badge-row" aria-label="Core badges">
                 <span class="badge">Cairo, Egypt</span>
                 <span class="badge">Flutter & Dart</span>
                 <span class="badge">Bloc / Clean Arch</span>
@@ -316,15 +328,14 @@
               </div>
             </div>
            <div class="hero-portrait" id="hero-portrait">
-    <img class="hero-photo" src="./pfp.jpeg" alt="Mohammed Raees"
-         onerror="this.onerror=null; this.closest('.hero-portrait').classList.add('is-fallback');">
-    <div class="hero-fallback" aria-hidden="true">MR</div>
-</div>
+            <img class="hero-photo" src="./pfp.jpeg" alt="Mohammed Raees"
+                onerror="this.onerror=null; this.closest('.hero-portrait').classList.add('is-fallback');">
+            <div class="hero-fallback" aria-hidden="true">MR</div>
+          </div>
           </div>
         </div>
       </section>
 
-      <!-- ABOUT -->
       <section class="section reveal" id="about">
         <div class="container">
           <div class="section-label">[ about ]</div>
@@ -334,23 +345,58 @@
           </div>
           <div class="about-grid">
             <article class="card panel">
-              <p class="copy">Mohammed is a results-driven Flutter developer who leverages Clean Architecture and MVVM design patterns to build reliable, scalable mobile solutions. While developing the mobile app for Egypt's Bus Rapid Transit (BRT) system, he focused on modularity and strict state management to handle real-time API synchronization and complex offline-to-online transitions, achieving a stable 60 FPS on low-end devices. For his current project, GraphSphere—an AI-powered knowledge management platform—he engineered a robust, offline-first architecture utilizing the Bloc pattern for reactive state management and Hive for local persistence. Developing primarily on his Fedora Linux setup, Mohammed is deeply committed to structural code quality, scalable architecture, and optimizing widget tree performance.</p>
-            </article>
-            <aside class="card stack-card">
-              <h3 class="stack-title">Skills</h3>
-              <ul class="skill-list">
-                <li class="skill-item"><span class="skill-label">Core</span><span>Flutter, Dart</span></li>
-                <li class="skill-item"><span class="skill-label">State & Architecture</span><span>Bloc, MVVM, Clean Architecture</span></li>
-                <li class="skill-item"><span class="skill-label">Data & Services</span><span>REST APIs, Hive, Firebase, OCR</span></li>
-                <li class="skill-item"><span class="skill-label">Tools & OS</span><span>Git, Fedora Linux, Windows 11</span></li>
-                <li class="skill-item"><span class="skill-label">Also familiar</span><span>C++, Java, Python, Kotlin</span></li>
-              </ul>
-            </aside>
+<p class="copy">
+  I'm a Flutter developer focused on building mobile apps that are 
+  clean under the hood — not just on the surface. I work primarily 
+  with BLoC and Clean Architecture, and I care a lot about what 
+  happens when the internet disappears: offline-first design, 
+  delta-sync, and state that doesn't break under pressure.
+  <br><br>
+My main project is GraphSphere — an AI-powered knowledge management 
+app I designed and built from scratch on the mobile side, consuming 
+a Nest.js REST API via Dio. It's where I went deep on things most 
+tutorials don't cover: hardware-backed cryptographic authentication, 
+force-directed graph rendering on mobile canvas, OCR-based text 
+extraction, and an offline-first sync engine that keeps local and 
+remote state consistent without full re-fetches.
+  <br><br>
+  I'm looking for a full-time Flutter role where architecture 
+  actually matters.
+</p>
+          </article>
+           <aside class="card stack-card">
+  <h3 class="stack-title">Skills</h3>
+  <ul class="skill-list">
+    <li class="skill-item">
+      <span class="skill-label">Core</span>
+      <span>Flutter, Dart</span>
+    </li>
+    <li class="skill-item">
+      <span class="skill-label">Platforms</span>
+      <span>Android, iOS</span>
+    </li>
+    <li class="skill-item">
+      <span class="skill-label">State & Architecture</span>
+      <span>BLoC, MVVM, Clean Architecture, Offline-First</span>
+    </li>
+    <li class="skill-item">
+      <span class="skill-label">Data & Services</span>
+      <span>REST APIs, Dio, Hive, Firebase, OCR</span>
+    </li>
+    <li class="skill-item">
+      <span class="skill-label">Tools & OS</span>
+      <span>Git, Fedora Linux, Windows 11</span>
+    </li>
+    <li class="skill-item">
+      <span class="skill-label">Also familiar</span>
+      <span>C++, Java, Python, Kotlin</span>
+    </li>
+  </ul>
+</aside>
           </div>
         </div>
       </section>
 
-      <!-- PROJECTS -->
       <section class="section reveal" id="projects">
         <div class="container">
           <div class="section-label">[ Projects ]</div>
@@ -360,33 +406,67 @@
           </div>
           <div class="projects-grid">
 
-<article class="card project-card">
-  <div class="project-top">
-    <div>
-      <div style="margin-bottom:0.6rem"><span class="wip-badge"><span class="wip-dot"></span>In Progress</span></div>
-      <h3 class="project-title">GraphSphere</h3>
-      <p class="project-description">Agent-driven, cross-platform knowledge management ecosystem featuring automated semantic mapping and offline-first mobile sync.</p>
-    </div>
-    <div class="project-date">May 2026 — Present</div>
-  </div>
-  <ul class="project-points">
-    <li>Architected the mobile ecosystem utilizing Feature-First Clean Architecture and MVVM patterns to guarantee modular separation of concerns.</li>
-    <li>Built a high-performance offline caching system with Hive and BLoC state management, paired with a delta-sync mechanism to seamlessly push background updates to the Nest.js API.</li>
-    <li>Secured mobile state data and session management with hardware-backed encryption keys utilizing native Keystore/Keychain integrations.</li>
-    <li>Integrated complex canvas interfaces for interactive mobile visualization of 2D force-directed knowledge graphs and responsive syntax structures.</li>
-  </ul>
-  <div class="tech-badges" aria-label="GraphSphere tech stack">
-    <span class="tech-badge">Flutter</span>
-    <span class="tech-badge">Dart</span>
-    <span class="tech-badge">Bloc</span>
-    <span class="tech-badge">Hive</span>
-    <span class="tech-badge">Nest.js</span>
-    <span class="tech-badge">Dio / REST APIs</span>
-    <span class="tech-badge">Secure Storage</span>
-    <span class="tech-badge">Clean Architecture</span>
-  </div>
-  <a class="project-link" href="https://github.com/Ch1b11" target="_blank" rel="noopener noreferrer">View on GitHub (demo coming soon)</a>
-</article>
+            <article class="card project-card">
+              <div class="project-top">
+                <div>
+                  <div style="margin-bottom:0.6rem"><span class="wip-badge"><span class="wip-dot"></span>Featured</span></div>
+                  <h3 class="project-title">GraphSphere</h3>
+                  <p class="project-description">Agent-driven, cross-platform knowledge management ecosystem featuring automated semantic mapping and offline-first mobile sync.</p>
+                </div>
+                <div class="project-date">May 2026 — Present</div>
+              </div>
+              <ul class="project-points">
+  <li>
+    <strong>Architected the mobile ecosystem</strong> using a strict 
+    Feature-First Clean Architecture and MVVM pattern within an Nx Monorepo, 
+    ensuring complete modular separation of concerns and fully type-safe 
+    REST API data flows via Dio across all feature modules.
+  </li>
+
+  <li>
+    <strong>Built an offline-first caching engine</strong> using Hive NoSQL 
+    and BLoC state management, with a custom delta-sync mechanism that 
+    intelligently pushes only changed data to the Nest.js backend — 
+    keeping local and remote state consistent without full re-fetches.
+  </li>
+
+  <li>
+    <strong>Engineered a hardware-backed security layer</strong> using native 
+    Android Keystore and iOS Keychain integrations via Flutter Secure Storage, 
+    enabling cryptographic authentication tied to the physical device — 
+    preventing session hijacking even on rooted or jailbroken devices.
+  </li>
+
+  <li>
+    <strong>Implemented a BLoC unit testing suite</strong> using the 
+    bloc_test package to verify state transitions across authentication 
+    and offline-sync cubits, catching edge cases in delta-sync logic 
+    before they reached production.
+  </li>
+
+  <li>
+    <strong>Rendered complex visual interfaces</strong> using Flutter's 
+    canvas API to display interactive 2D force-directed knowledge graphs 
+    with real-time node manipulation, alongside multi-line markdown 
+    parsing and OCR-based text extraction that converts captured images 
+    directly into structured, searchable knowledge nodes.
+  </li>
+</ul>
+              <div class="tech-badges" aria-label="GraphSphere tech stack">
+                <span class="tech-badge">Flutter</span>
+                <span class="tech-badge">Dart</span>
+                <span class="tech-badge">Bloc</span>
+                <span class="tech-badge">Hive</span>
+                <span class="tech-badge">Nest.js</span>
+                <span class="tech-badge">Dio / REST APIs</span>
+                <span class="tech-badge">Secure Storage</span>
+                <span class="tech-badge">Clean Architecture</span>
+              </div>
+              <div class="project-actions-row">
+                <a class="project-link" href="https://github.com/Ch1b11" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+                <button type="button" class="project-link" id="open-video-demo">Watch Demo</button>
+              </div>
+            </article>
 
             <article class="card project-card">
               <div class="project-top">
@@ -414,7 +494,6 @@
         </div>
       </section>
 
-      <!-- CREDENTIALS -->
       <section class="section reveal" id="credentials">
         <div class="container">
           <div class="section-label">[ CREDENTIALS ]</div>
@@ -459,15 +538,16 @@
                   <h3 class="meta-title">Languages</h3>
                   <div class="meta-list">
                     <div class="meta-item"><span class="meta-label">Arabic</span><span class="meta-value">Native</span></div>
-<div class="meta-item">
-  <span class="meta-label">English</span>
-  <span class="meta-value">
-    C1 — Professional working proficiency 
-    <a href="https://cert.efset.org/en/H6STKM" target="_blank" rel="noopener noreferrer" style="color: #1a73e8; text-decoration: none; font-weight: 500;">
-      (EF SET Certificate)
-    </a>
-  </span>
-</div>                </div>
+                    <div class="meta-item">
+                      <span class="meta-label">English</span>
+                      <span class="meta-value">
+                        C1 — Professional working proficiency 
+                        <a href="https://cert.efset.org/en/H6STKM" target="_blank" rel="noopener noreferrer" style="color: #1a73e8; text-decoration: none; font-weight: 500;">
+                          (EF SET Certificate)
+                        </a>
+                      </span>
+                    </div>                
+                  </div>
                 </div>
               </div>
             </aside>
@@ -475,7 +555,6 @@
         </div>
       </section>
 
-      <!-- CONTACT -->
       <section class="section reveal" id="contact">
         <div class="container">
           <div class="section-label">[ Contact ]</div>
@@ -518,6 +597,18 @@
           </div>
         </div>
       </section>
+
+      <div class="modal-overlay" id="video-modal" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="modal-content">
+          <button class="modal-close" id="close-video-modal" aria-label="Close modal">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+          </button>
+          <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/PLACEHOLDER" title="GraphSphere Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+      
     </main>
 
     <footer class="footer">
@@ -589,8 +680,7 @@
       });
 
       const typingPhrases = [
-        "Mohammed Raees builds reliable Flutter apps. Clean architecture, reactive state, offline-first...",
-        "Mohammed Raees builds reliable Flutter apps. 60 FPS on every device, clean Bloc patterns..."
+        "I build reliable Flutter apps — 60 FPS on every device, clean architecture by default."
       ];
       let phraseIndex = 0, charIndex = 0, deleting = false;
       const typeLoop = () => {
@@ -683,6 +773,51 @@
       window.addEventListener("resize", () => { clearTimeout(rt); rt=setTimeout(()=>{ resizeCanvas(); refresh(); },120); });
       window.addEventListener("scroll", () => { scrollOff = window.scrollY||0; }, { passive: true });
       themeToggle.addEventListener("click", () => { setTheme(isDarkMode ? "light" : "dark"); refresh({ restart: true }); });
+
+      // Video Modal Logic
+      const openVideoBtn = document.getElementById("open-video-demo");
+      const videoModal = document.getElementById("video-modal");
+      const closeVideoBtn = document.getElementById("close-video-modal");
+      const iframe = videoModal ? videoModal.querySelector("iframe") : null;
+      let iframeSrc = iframe ? iframe.src : "";
+
+      const openModal = () => {
+        if (!videoModal) return;
+        videoModal.classList.add("is-open");
+        videoModal.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden"; // Prevent body scrolling
+      };
+
+      const closeModal = () => {
+        if (!videoModal) return;
+        videoModal.classList.remove("is-open");
+        videoModal.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = ""; 
+        
+        // Reset iframe src to cut off video playing in the background
+        if (iframe) {
+          iframe.src = iframeSrc;
+        }
+      };
+
+      if (openVideoBtn && videoModal && closeVideoBtn) {
+        openVideoBtn.addEventListener("click", openModal);
+        closeVideoBtn.addEventListener("click", closeModal);
+        
+        // Close on background click
+        videoModal.addEventListener("click", (e) => {
+          if (e.target === videoModal) {
+            closeModal();
+          }
+        });
+
+        // Close on Escape key
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape" && videoModal.classList.contains("is-open")) {
+            closeModal();
+          }
+        });
+      }
     })();
   </script>
 </body>
