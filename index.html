@@ -5,8 +5,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
-    content="I'm a Flutter developer based in Cairo, Egypt, specializing in clean architecture, Bloc state management, and offline-first mobile applications.">
-  <title>Mohammed Raees | Flutter Developer</title>
+    content="Mohammed Raees — Mobile Developer (Flutter) based in Cairo, Egypt. Specializing in Clean Architecture, BLoC state management, and offline-first mobile applications.">
+  <meta name="theme-color" content="#06080d" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f5f5f0" media="(prefers-color-scheme: light)">
+  <meta property="og:title" content="Mohammed Raees | Mobile Developer (Flutter)">
+  <meta property="og:description" content="I build reliable Flutter apps with Clean Architecture, BLoC, and offline-first synchronization.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://Ch1b11.github.io/">
+  <meta property="og:image" content="./pfp.jpeg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mohammed Raees | Mobile Developer (Flutter)">
+  <meta name="twitter:description" content="I build reliable Flutter apps with Clean Architecture, BLoC, and offline-first synchronization.">
+  <meta name="twitter:image" content="./pfp.jpeg">
+  <link rel="canonical" href="https://Ch1b11.github.io/">
+  <title>Mohammed Raees | Mobile Developer (Flutter)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -183,6 +195,7 @@
     .skill-item { padding: 0; border-top: 0; }
     .skill-item:first-child { border-top: 0; padding-top: 0; }
     .skill-label { display: block; margin-bottom: var(--space-2); font-family: var(--font-mono); color: var(--accent); font-size: 0.95rem; }
+    .skill-value { display: block; color: var(--text-body); font-size: 0.92rem; line-height: 1.55; }
     .stack-card { width: 100%; height: auto; padding: var(--space-8); display: grid; gap: var(--space-5); align-content: start; position: relative; z-index: 1; }
     .stack-title, .meta-title { margin: 0; font-size: 0.96rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-secondary); font-family: var(--font-mono); }
 
@@ -200,6 +213,175 @@
     .project-actions-row { display: flex; align-items: center; gap: var(--space-4); margin-top: var(--space-2); }
     .project-link, .contact-link { color: var(--accent); background: none; border: none; padding: 0; font: inherit; cursor: pointer; display: inline-block; }
     .project-link:hover, .contact-link:hover { text-decoration: underline; text-underline-offset: 0.18em; }
+    .project-link-subtle { font-size: 0.88rem; color: var(--text-muted); }
+    .project-link-subtle:hover { color: var(--accent); text-decoration: underline; }
+
+    /* Featured Project Card & Badges */
+    .featured-project {
+      border-color: rgba(var(--accent-rgb), 0.35);
+      box-shadow: 0 20px 48px var(--shadow-elevated), 0 0 28px rgba(var(--accent-rgb), 0.12);
+    }
+    .featured-badge {
+      display: inline-flex;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      padding: 0.25rem 0.65rem;
+      border-radius: var(--radius-full);
+      background: rgba(var(--accent-rgb), 0.08);
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    /* Horizontal Showcase Gallery */
+    .showcase-gallery-wrap {
+      margin-top: var(--space-4);
+      padding-top: var(--space-5);
+      border-top: 1px solid var(--border);
+    }
+    .showcase-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: var(--space-3);
+    }
+    .showcase-header-left {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+    .showcase-label {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .showcase-hint {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+    .gallery-nav-buttons {
+      display: flex;
+      gap: var(--space-2);
+    }
+    .gallery-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      color: var(--text-primary);
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+    .gallery-btn:hover, .gallery-btn:focus-visible {
+      border-color: var(--accent);
+      color: var(--accent);
+      box-shadow: 0 0 12px var(--shadow-accent);
+    }
+    .gallery-btn svg {
+      width: 0.95rem;
+      height: 0.95rem;
+      fill: currentColor;
+    }
+    .showcase-scroll {
+      display: flex;
+      gap: var(--space-4);
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding: var(--space-2) var(--space-1) var(--space-3);
+      scrollbar-width: thin;
+      scrollbar-color: var(--accent) transparent;
+    }
+    .showcase-scroll::-webkit-scrollbar {
+      height: 6px;
+    }
+    .showcase-scroll::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .showcase-scroll::-webkit-scrollbar-thumb {
+      background: var(--border-strong);
+      border-radius: var(--radius-full);
+    }
+    .showcase-scroll::-webkit-scrollbar-thumb:hover {
+      background: var(--accent);
+    }
+    .showcase-item {
+      flex: 0 0 170px;
+      scroll-snap-align: start;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+    .featured-project .showcase-item {
+      flex: 0 0 190px;
+    }
+    .showcase-item.is-tablet {
+      flex: 0 0 380px;
+    }
+    .featured-project .showcase-item.is-tablet {
+      flex: 0 0 420px;
+    }
+    .showcase-item.is-tablet .showcase-frame {
+      aspect-ratio: 16 / 10;
+    }
+    .store-notice-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.04em;
+      color: var(--accent);
+      border: 1px dashed var(--accent);
+      padding: 0.25rem 0.65rem;
+      border-radius: var(--radius-full);
+      background: rgba(var(--accent-rgb), 0.08);
+      font-weight: 500;
+    }
+    .showcase-frame {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: #000;
+      aspect-ratio: 9 / 18.5;
+      box-shadow: 0 8px 22px var(--shadow-elevated);
+      transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+    }
+    .showcase-frame:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+      box-shadow: 0 14px 28px var(--shadow-elevated), 0 0 18px var(--shadow-accent);
+    }
+    .showcase-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+    .showcase-caption {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      text-align: center;
+      line-height: 1.3;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding: 0 var(--space-1);
+    }
     
     /* MODAL STYLES */
     .modal-overlay { position: fixed; inset: 0; z-index: 100; background: var(--bg-card-soft); backdrop-filter: blur(12px); display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: opacity var(--transition), visibility var(--transition); padding: var(--space-4); }
@@ -212,12 +394,136 @@
     .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 100%; background: #000; }
     .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
+    /* Experience Timeline */
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: var(--space-8);
+      max-width: 960px;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: 1.5rem;
+      bottom: 1.5rem;
+      left: 1.25rem;
+      width: 2px;
+      background: linear-gradient(180deg, var(--accent), color-mix(in srgb, var(--accent) 15%, transparent));
+    }
+    .timeline-item {
+      position: relative;
+      padding-left: 3.5rem;
+    }
+    .timeline-marker {
+      position: absolute;
+      top: 1.75rem;
+      left: 0.85rem;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 2px solid var(--accent);
+      box-shadow: 0 0 12px var(--shadow-accent);
+      z-index: 2;
+      transition: background-color var(--transition), transform var(--transition);
+    }
+    .timeline-item:hover .timeline-marker {
+      background: var(--accent);
+      transform: scale(1.2);
+    }
+    .timeline-card {
+      width: 100%;
+      padding: var(--space-8);
+      display: grid;
+      gap: var(--space-4);
+    }
+    .timeline-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: var(--space-3);
+    }
+    .timeline-role {
+      margin: 0;
+      font-size: 1.35rem;
+      line-height: 1.25;
+      color: var(--text-primary);
+      text-shadow: 0 0 18px var(--shadow-accent);
+    }
+    .timeline-company {
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      color: var(--accent);
+      margin-top: 0.35rem;
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      flex-wrap: wrap;
+    }
+    .timeline-location {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+    }
+    .timeline-date-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.35rem;
+    }
+    .timeline-date {
+      font-family: var(--font-mono);
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      white-space: nowrap;
+    }
+    .timeline-type-badge {
+      display: inline-flex;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      padding: 0.18rem 0.55rem;
+      border-radius: var(--radius-full);
+      background: rgba(var(--accent-rgb), 0.08);
+      white-space: nowrap;
+    }
+    .timeline-points {
+      margin: 0;
+      padding-left: 1.2rem;
+      color: var(--text-primary);
+      display: grid;
+      gap: var(--space-2);
+      line-height: var(--line-normal);
+    }
+    .timeline-points strong {
+      color: var(--text-primary);
+    }
+
     .credentials-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr); gap: var(--space-8); }
     .credentials-stack { display: grid; gap: var(--space-6); }
     .meta-list { display: grid; gap: var(--space-3); }
     .meta-item { display: grid; gap: var(--space-1); }
     .meta-label { font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; }
     .meta-value { color: var(--text-primary); }
+    .meta-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      color: var(--accent);
+      font-size: 0.92rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: color var(--transition);
+      margin-top: 0.25rem;
+    }
+    .meta-link:hover, .meta-link:focus-visible {
+      text-decoration: underline;
+      text-underline-offset: 0.2em;
+    }
 
     .contact-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr); gap: var(--space-8); }
     .contact-copy { display: grid; gap: var(--space-5); align-content: start; }
@@ -259,6 +565,17 @@
       .hero-title { font-size: clamp(2.5rem, 14vw, 4rem); }
       .panel, .project-card, .stack-card { padding: var(--space-6); }
       .section { padding: var(--space-12) 0; }
+      .showcase-item { flex: 0 0 145px; }
+      .featured-project .showcase-item { flex: 0 0 155px; }
+      .showcase-item.is-tablet { flex: 0 0 250px; }
+      .featured-project .showcase-item.is-tablet { flex: 0 0 265px; }
+      .showcase-hint { display: none; }
+      .timeline::before { left: 0.75rem; }
+      .timeline-item { padding-left: 2.25rem; }
+      .timeline-marker { left: 0.45rem; width: 12px; height: 12px; top: 1.5rem; }
+      .timeline-card { padding: var(--space-6); }
+      .timeline-header { flex-direction: column; align-items: flex-start; gap: var(--space-2); }
+      .timeline-date-wrap { align-items: flex-start; text-align: left; }
     }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation: none !important; }
@@ -296,6 +613,7 @@
               <ul class="nav-links">
                 <li><a class="nav-link" href="#about">About</a></li>
                 <li><a class="nav-link" href="#projects">Projects</a></li>
+                <li><a class="nav-link" href="#experience">Experience</a></li>
                 <li><a class="nav-link" href="#credentials">Credentials</a></li>
                 <li><a class="nav-link" href="#contact">Contact</a></li>
               </ul>
@@ -311,17 +629,17 @@
           <div class="hero-layout">
             <div class="hero-copy">
               <h1 class="hero-title">Mohammed<br>Raees</h1>
-              <p class="hero-subtitle">Flutter Developer / Cairo, Egypt</p>
+              <p class="hero-subtitle">Mobile Developer (Flutter) · Cairo, Egypt</p>
               <p class="hero-tagline"><span class="typing-line" id="typing-text" aria-live="polite"></span></p>
-              <p class="hero-bio">Flutter developer focused on scalable, production-ready mobile apps with BLoC state management, Clean Architecture, and offline-first design. Currently open to full-time opportunities.</p>
+              <p class="hero-bio">I'm a mobile developer who builds maintainable Flutter apps with Clean Architecture, BLoC, and offline-first synchronization. I've built four full-scale mobile apps and led a team as project lead during an internship. Open to full-time mobile developer roles.</p>
               <div class="badge-row" aria-label="Core badges">
-                <span class="badge">Cairo, Egypt</span>
                 <span class="badge">Flutter & Dart</span>
-                <span class="badge">Bloc / Clean Arch</span>
+                <span class="badge">BLoC & Clean Arch</span>
+                <span class="badge">Offline-First Sync</span>
               </div>
               <div class="cta-row">
                 <a class="button button-primary" href="https://github.com/Ch1b11" target="_blank" rel="noopener noreferrer">GitHub</a>
-                <a class="button" href="https://www.linkedin.com/in/mohammed-raees-ch1b1" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a class="button" href="https://www.linkedin.com/in/mohammed-raees-dev" target="_blank" rel="noopener noreferrer">LinkedIn</a>
                 <a class="button" href="https://drive.google.com/drive/folders/1nk851XBXK5vnXbUnJ8BbmG9myZ5_n6FP?usp=sharing" rel="noopener noreferrer">View Resume</a>
                 <a class="button" href="mailto:moh.a.raees@gmail.com">Email Me</a>
               </div>
@@ -340,58 +658,51 @@
           <div class="section-label">[ about ]</div>
           <div class="section-header">
             <h2 class="section-title">About</h2>
-            <p class="section-subtitle">I care about mobile apps that work — cleanly, reliably, and fast — on every device.</p>
+            <p class="section-subtitle">Mobile developer focused on maintainable architecture, offline-first systems, and practical engineering.</p>
           </div>
           <div class="about-grid">
             <article class="card panel">
-<p class="copy">
-  I'm a Flutter developer focused on building mobile apps that are 
-  clean under the hood — not just on the surface. I work primarily 
-  with BLoC and Clean Architecture, and I care a lot about what 
-  happens when the internet disappears: offline-first design, 
-  delta-sync, and state that doesn't break under pressure.
-  <br><br>
-My main project is GraphSphere — an AI-powered knowledge management 
-app I designed and built from scratch on the mobile side, consuming 
-a Nest.js REST API via Dio. It's where I went deep on things most 
-tutorials don't cover: hardware-backed cryptographic authentication, 
-force-directed graph rendering on mobile canvas, OCR-based text 
-extraction, and an offline-first sync engine that keeps local and 
-remote state consistent without full re-fetches.
-  <br><br>
-  I'm looking for a full-time Flutter role where architecture 
-  actually matters.
-</p>
-          </article>
-           <aside class="card stack-card">
-  <h3 class="stack-title">Skills</h3>
-  <ul class="skill-list">
-    <li class="skill-item">
-      <span class="skill-label">Core</span>
-      <span>Flutter, Dart</span>
-    </li>
-    <li class="skill-item">
-      <span class="skill-label">Platforms</span>
-      <span>Android, iOS</span>
-    </li>
-    <li class="skill-item">
-      <span class="skill-label">State & Architecture</span>
-      <span>BLoC, MVVM, Clean Architecture, Offline-First</span>
-    </li>
-    <li class="skill-item">
-      <span class="skill-label">Data & Services</span>
-      <span>REST APIs, Dio, Hive, Firebase, OCR</span>
-    </li>
-    <li class="skill-item">
-      <span class="skill-label">Tools & OS</span>
-      <span>Git, Fedora Linux, Windows 11</span>
-    </li>
-    <li class="skill-item">
-      <span class="skill-label">Also familiar</span>
-      <span>C++, Java, Python, Kotlin</span>
-    </li>
-  </ul>
-</aside>
+              <p class="copy">
+                I'm a mobile developer focused on building maintainable apps with Clean Architecture, BLoC/Cubit, and practical mobile engineering. I prioritize what happens when the network drops: offline-first outbox synchronization, deterministic error handling, and robust state transitions that keep local and remote data consistent.
+                <br><br>
+                My flagship project is <strong>GraphSphere</strong>, an AI knowledge management mobile client designed to consume a Nest.js REST API. I built the complete Flutter client using Feature-First Clean Architecture within an Nx monorepo. It features an AI chat assistant that streams responses over SSE, offline-first sync with Hive draft autosave, an interactive force-directed knowledge graph on canvas, a Markdown editor with live syntax highlighting, and adaptive layouts across mobile, tablet, and desktop.
+                <br><br>
+                Across my projects, I focus on solving real mobile engineering challenges — from offline sync engines to single-flight JWT token refresh flows. I am actively looking for full-time Flutter/mobile developer opportunities where I can contribute to production-grade mobile codebases.
+              </p>
+            </article>
+            <aside class="card stack-card">
+              <h3 class="stack-title">Skills</h3>
+              <ul class="skill-list">
+                <li class="skill-item">
+                  <span class="skill-label">Languages</span>
+                  <span class="skill-value">Dart, C++, Java (basic), Python (basic), Kotlin (basic)</span>
+                </li>
+                <li class="skill-item">
+                  <span class="skill-label">Flutter & UI</span>
+                  <span class="skill-value">Flutter, Android, iOS, Adaptive & Responsive UI, CustomPainter, RTL Localization</span>
+                </li>
+                <li class="skill-item">
+                  <span class="skill-label">Architecture & State Management</span>
+                  <span class="skill-value">Clean Architecture, BLoC/Cubit, MVVM, Feature-First Architecture, GetIt / Dependency Injection</span>
+                </li>
+                <li class="skill-item">
+                  <span class="skill-label">Networking & Backend Integration</span>
+                  <span class="skill-value">REST APIs, Dio, JWT Refresh Flow, Socket.IO, Server-Sent Events (SSE), OAuth 2.0, Firebase, OCR</span>
+                </li>
+                <li class="skill-item">
+                  <span class="skill-label">Local Storage & Offline-First</span>
+                  <span class="skill-value">Hive, Flutter Secure Storage, Offline-First Outbox Synchronization</span>
+                </li>
+                <li class="skill-item">
+                  <span class="skill-label">Testing</span>
+                  <span class="skill-value">bloc_test, Mocktail, Unit Testing, Widget Testing</span>
+                </li>
+                <li class="skill-item">
+                  <span class="skill-label">Tools & Workflow</span>
+                  <span class="skill-value">Git, Monorepos (Nx, Turborepo), Fedora Linux, Windows 11, Team Coordination & Code Merging</span>
+                </li>
+              </ul>
+            </aside>
           </div>
         </div>
       </section>
@@ -401,93 +712,508 @@ remote state consistent without full re-fetches.
           <div class="section-label">[ Projects ]</div>
           <div class="section-header">
             <h2 class="section-title">Projects</h2>
-            <p class="section-subtitle">Production-grade Flutter apps built with clean architecture, reactive state, and real-device performance in mind.</p>
+            <p class="section-subtitle">Mobile clients built with Clean Architecture, BLoC state management, and offline-first synchronization.</p>
           </div>
           <div class="projects-grid">
 
-            <article class="card project-card">
+            <!-- 1. GraphSphere (Featured Flagship) -->
+            <article class="card project-card featured-project">
               <div class="project-top">
                 <div>
-                  <div style="margin-bottom:0.6rem"><span class="wip-badge"><span class="wip-dot"></span>Featured</span></div>
+                  <div style="margin-bottom:0.6rem"><span class="featured-badge">Featured Flagship</span></div>
                   <h3 class="project-title">GraphSphere</h3>
-                  <p class="project-description">Agent-driven, cross-platform knowledge management ecosystem featuring automated semantic mapping and offline-first mobile sync.</p>
+                  <p class="project-description">AI knowledge management mobile client consuming a Nest.js REST API, built on Feature-First Clean Architecture within an Nx monorepo.</p>
                 </div>
-                <div class="project-date">May 2026 — Present</div>
+                <div class="project-date">May 2026</div>
               </div>
               <ul class="project-points">
-  <li>
-    <strong>Architected the mobile ecosystem</strong> using a strict 
-    Feature-First Clean Architecture and MVVM pattern within an Nx Monorepo, 
-    ensuring complete modular separation of concerns and fully type-safe 
-    REST API data flows via Dio across all feature modules.
-  </li>
-
-  <li>
-    <strong>Built an offline-first caching engine</strong> using Hive NoSQL 
-    and BLoC state management, with a custom delta-sync mechanism that 
-    intelligently pushes only changed data to the Nest.js backend — 
-    keeping local and remote state consistent without full re-fetches.
-  </li>
-
-  <li>
-    <strong>Engineered a hardware-backed security layer</strong> using native 
-    Android Keystore and iOS Keychain integrations via Flutter Secure Storage, 
-    enabling cryptographic authentication tied to the physical device — 
-    preventing session hijacking even on rooted or jailbroken devices.
-  </li>
-
-  <li>
-    <strong>Implemented a BLoC unit testing suite</strong> using the 
-    bloc_test package to verify state transitions across authentication 
-    and offline-sync cubits, catching edge cases in delta-sync logic 
-    before they reached production.
-  </li>
-
-  <li>
-    <strong>Rendered complex visual interfaces</strong> using Flutter's 
-    canvas API to display interactive 2D force-directed knowledge graphs 
-    with real-time node manipulation, alongside multi-line markdown 
-    parsing and OCR-based text extraction that converts captured images 
-    directly into structured, searchable knowledge nodes.
-  </li>
-</ul>
+                <li>
+                  <strong>Mobile Architecture:</strong> Built the complete Flutter mobile client on Feature-First Clean Architecture and MVVM in an Nx monorepo, consuming a Nest.js REST API via Dio with GetIt and Either&lt;Failure, T&gt; error handling.
+                </li>
+                <li>
+                  <strong>Offline-First Delta Sync:</strong> Implemented a Hive outbox queue with delta-sync so notes, notebooks, and tasks work offline, plus per-note draft autosave that survives app crashes and restarts.
+                </li>
+                <li>
+                  <strong>AI Chat Streaming:</strong> Decoded Server-Sent Events from Dio byte streams into BLoC states for token deltas, tool calls, and thought blocks.
+                </li>
+                <li>
+                  <strong>Canvas Graph & Markdown Editor:</strong> Rendered interactive force-directed knowledge graphs using canvas CustomPainter, and built a Markdown editor with memoized syntax highlighting, live preview, and offline PDF export.
+                </li>
+                <li>
+                  <strong>Security & Integrations:</strong> Added OCR text extraction, Google Calendar sync (OAuth 2.0, deep links), and secure Keystore/Keychain token storage via Flutter Secure Storage. Unit-tested BLoCs using bloc_test.
+                </li>
+              </ul>
               <div class="tech-badges" aria-label="GraphSphere tech stack">
                 <span class="tech-badge">Flutter</span>
                 <span class="tech-badge">Dart</span>
-                <span class="tech-badge">Bloc</span>
-                <span class="tech-badge">Hive</span>
-                <span class="tech-badge">Nest.js</span>
-                <span class="tech-badge">Dio / REST APIs</span>
-                <span class="tech-badge">Secure Storage</span>
+                <span class="tech-badge">BLoC</span>
                 <span class="tech-badge">Clean Architecture</span>
+                <span class="tech-badge">Hive</span>
+                <span class="tech-badge">Dio / REST API</span>
+                <span class="tech-badge">SSE</span>
+                <span class="tech-badge">CustomPainter</span>
+                <span class="tech-badge">OAuth 2.0</span>
+                <span class="tech-badge">bloc_test</span>
               </div>
               <div class="project-actions-row">
-                <a class="project-link" href="https://github.com/Ch1b11/GraphSphere" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
-                <button type="button" class="project-link" id="open-video-demo">Watch Demo</button>
+                <a class="project-link" href="https://github.com/Ch1b11/GraphSphere" target="_blank" rel="noopener noreferrer">GitHub Repository ↗</a>
+                <button type="button" class="project-link" id="open-video-demo">Watch Demo Video ▶</button>
+                <a class="project-link project-link-subtle" href="https://youtu.be/t2p6JgNmj5c" target="_blank" rel="noopener noreferrer">YouTube ↗</a>
+              </div>
+
+              <!-- Dedicated GraphSphere Showcase Gallery -->
+              <div class="showcase-gallery-wrap">
+                <div class="showcase-header">
+                  <div class="showcase-header-left">
+                    <span class="showcase-label">App Showcase (10 Screens · Phone & Tablet)</span>
+                    <span class="showcase-hint">← Swipe or scroll horizontally →</span>
+                  </div>
+                  <div class="gallery-nav-buttons" aria-label="GraphSphere gallery controls">
+                    <button type="button" class="gallery-btn" data-gallery="gallery-graphsphere" data-dir="-1" aria-label="Previous GraphSphere screenshot">
+                      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+                    </button>
+                    <button type="button" class="gallery-btn" data-gallery="gallery-graphsphere" data-dir="1" aria-label="Next GraphSphere screenshot">
+                      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="showcase-scroll" id="gallery-graphsphere" tabindex="0" role="region" aria-label="GraphSphere App Screenshots">
+                  <div class="showcase-item">
+                    <div class="showcase-frame">
+                      <img class="showcase-img" src="./GraphSphere/graph_screen.png" alt="GraphSphere interactive force-directed knowledge graph screen" loading="lazy" decoding="async">
+                    </div>
+                    <span class="showcase-caption">Knowledge Graph</span>
+                  </div>
+                  <div class="showcase-item">
+                    <div class="showcase-frame">
+                      <img class="showcase-img" src="./GraphSphere/dashboard_screen.png" alt="GraphSphere dashboard screen showing recent notes and notebooks" loading="lazy" decoding="async">
+                    </div>
+                    <span class="showcase-caption">Dashboard & Notebooks</span>
+                  </div>
+                  <div class="showcase-item">
+                    <div class="showcase-frame">
+                      <img class="showcase-img" src="./GraphSphere/note_screen.png" alt="GraphSphere markdown editor with live preview split view" loading="lazy" decoding="async">
+                    </div>
+                    <span class="showcase-caption">Markdown Editor</span>
+                  </div>
+                  <div class="showcase-item">
+                    <div class="showcase-frame">
+                      <img class="showcase-img" src="./GraphSphere/ai_screen.png" alt="GraphSphere AI chat assistant interface with tool execution" loading="lazy" decoding="async">
+                    </div>
+                    <span class="showcase-caption">AI Chat Assistant</span>
+                  </div>
+                  <div class="showcase-item">
+                    <div class="showcase-frame">
+                      <img class="showcase-img" src="./GraphSphere/file_tree_screen.png" alt="GraphSphere drawer showing hierarchical note folder tree" loading="lazy" decoding="async">
+                    </div>
+                    <span class="showcase-caption">Folder Tree Drawer</span>
+                  </div>
+                  <div class="showcase-item">
+                    <div class="showcase-frame">
+                      <img class="showcase-img" src="./GraphSphere/flashcard_screen.png" alt="GraphSphere flashcards quiz and study mode screen" loading="lazy" decoding="async">
+                    </div>
+                    <span class="showcase-caption">Study Flashcards</span>
+                  </div>
+                  <div class="showcase-item">
+                    <div class="showcase-frame">
+                      <img class="showcase-img" src="./GraphSphere/calendar_screen.png" alt="GraphSphere Google Calendar schedule and task sync screen" loading="lazy" decoding="async">
+                    </div>
+                    <span class="showcase-caption">Calendar Integration</span>
+                  </div>
+                  <div class="showcase-item">
+                    <div class="showcase-frame">
+                      <img class="showcase-img" src="./GraphSphere/drawer_screen.png" alt="GraphSphere sidebar navigation drawer with app sections" loading="lazy" decoding="async">
+                    </div>
+                    <span class="showcase-caption">Navigation Drawer</span>
+                  </div>
+                  <div class="showcase-item is-tablet">
+                    <div class="showcase-frame">
+                      <img class="showcase-img" src="./GraphSphere/tablet_notes_screen.png" alt="GraphSphere tablet layout showing split view markdown note editor" loading="lazy" decoding="async">
+                    </div>
+                    <span class="showcase-caption">Tablet · Notes Split View</span>
+                  </div>
+                  <div class="showcase-item is-tablet">
+                    <div class="showcase-frame">
+                      <img class="showcase-img" src="./GraphSphere/tablet_newevent_screen.png" alt="GraphSphere tablet layout showing calendar new event modal" loading="lazy" decoding="async">
+                    </div>
+                    <span class="showcase-caption">Tablet · Event Schedule</span>
+                  </div>
+                </div>
               </div>
             </article>
 
+            <!-- 2. FarmERP -->
             <article class="card project-card">
               <div class="project-top">
                 <div>
-                  <h3 class="project-title">BRT — Bus Rapid Transit</h3>
-                  <p class="project-description">Mobile application for Egypt's Bus Rapid Transit system — real-time routes, ticket booking, and offline sync.</p>
+                  <div style="margin-bottom:0.6rem"><span class="badge">Mobile Client</span></div>
+                  <h3 class="project-title">FarmERP</h3>
+                  <p class="project-description">Offline-first, multi-tenant agriculture ERP mobile client supporting field operations, workforce tracking, and financial ledgers.</p>
                 </div>
-                <div class="project-date">July 2025</div>
+                <div class="project-date">Sep 2026</div>
               </div>
               <ul class="project-points">
-                <li>Built the full mobile app for Egypt's BRT network — route management, stop browsing, and ticket booking flows.</li>
-                <li>Integrated REST APIs for real-time synchronization, maintaining 99% data consistency across offline-to-online transitions.</li>
-                <li>Structured application logic with Bloc to manage complex state transitions and user interactions.</li>
-                <li>Optimized widget tree rendering to achieve consistent 60 FPS performance on low-end Android devices.</li>
+                <li>
+                  <strong>Multi-Tenant Architecture:</strong> Built the complete Flutter client for a multi-tenant ERP with 20 feature modules, 31 screens, and 32 BLoCs/Cubits on Feature-First Clean Architecture and GetIt.
+                </li>
+                <li>
+                  <strong>FIFO Outbox Synchronization:</strong> Engineered a mutex-guarded FIFO outbox with UUID-to-server-ID remapping across queued mutations and dead-lettering of orphaned requests.
+                </li>
+                <li>
+                  <strong>Data Integrity & Cache Isolation:</strong> Implemented rollback of optimistic financial entries on 400/409 rejections, a smart-merge cache preserving unsynced records, and isolated per-farm Hive boxes.
+                </li>
+                <li>
+                  <strong>Adaptive UI & Testing:</strong> Delivered adaptive mobile/tablet/desktop layouts, bilingual Arabic/English RTL support, and 74 automated test files covering BLoCs, sync logic, and cache merging.
+                </li>
               </ul>
-              <div class="tech-badges" aria-label="BRT tech stack">
+              <div class="tech-badges" aria-label="FarmERP tech stack">
                 <span class="tech-badge">Flutter</span>
                 <span class="tech-badge">Dart</span>
-                <span class="tech-badge">Bloc</span>
-                <span class="tech-badge">REST APIs</span>
+                <span class="tech-badge">BLoC</span>
+                <span class="tech-badge">Clean Architecture</span>
+                <span class="tech-badge">Hive</span>
+                <span class="tech-badge">Dio</span>
+                <span class="tech-badge">GetIt</span>
+                <span class="tech-badge">GoRouter</span>
+                <span class="tech-badge">RTL Localization</span>
+                <span class="tech-badge">bloc_test</span>
+              </div>
+              <div class="project-actions-row">
+                <a class="project-link" href="https://github.com/Ch1b11/FarmERP-Public" target="_blank" rel="noopener noreferrer">GitHub Repository ↗</a>
+              </div>
+
+              <!-- Dedicated FarmERP Showcase Gallery -->
+              <div class="showcase-gallery-wrap">
+                <div class="showcase-header">
+                  <div class="showcase-header-left">
+                    <span class="showcase-label">Mobile App Screens (8 Screens · Phone & Tablet)</span>
+                    <span class="showcase-hint">← Swipe or scroll horizontally →</span>
+                  </div>
+                  <div class="gallery-nav-buttons" aria-label="FarmERP gallery controls">
+                    <button type="button" class="gallery-btn" data-gallery="gallery-farmerp" data-dir="-1" aria-label="Previous FarmERP screenshot">
+                      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+                    </button>
+                    <button type="button" class="gallery-btn" data-gallery="gallery-farmerp" data-dir="1" aria-label="Next FarmERP screenshot">
+                      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="showcase-scroll" id="gallery-farmerp" tabindex="0" role="region" aria-label="FarmERP App Screenshots">
+                  <div class="showcase-item">
+                    <div class="showcase-frame">
+                      <img class="showcase-img" src="./FarmERP/dashboard_screen.jpeg" alt="FarmERP operations dashboard showing farm activity metrics and quick actions" loading="lazy" decoding="async">
+                    </div>
+                    <span class="showcase-caption">Operations Dashboard</span>
+                  </div>
+                  <div class="showcase-item">
+                    <div class="showcase-frame">
+                      <img class="showcase-img" src="./FarmERP/finance_screen.jpeg" alt="FarmERP financial records screen tracking revenues, expenses, and ledger entries" loading="lazy" decoding="async">
+                    </div>
+                    <span class="showcase-caption">Financial Ledger</span>
+                  </div>
+                  <div class="showcase-item">
+                    <div class="showcase-frame">
+                      <img class="showcase-img" src="./FarmERP/employees_screen.jpeg" alt="FarmERP workforce directory showing field workers and employee list" loading="lazy" decoding="async">
+                    </div>
+                    <span class="showcase-caption">Workforce Directory</span>
+                  </div>
+                  <div class="showcase-item">
+                    <div class="showcase-frame">
+                      <img class="showcase-img" src="./FarmERP/employee_profile_screen.jpeg" alt="FarmERP employee profile detail with wage details and role assignments" loading="lazy" decoding="async">
+                    </div>
+                    <span class="showcase-caption">Employee Profile</span>
+                  </div>
+                  <div class="showcase-item">
+                    <div class="showcase-frame">
+                      <img class="showcase-img" src="./FarmERP/employee_history_screen.jpeg" alt="FarmERP employee shift history and activity audit log screen" loading="lazy" decoding="async">
+                    </div>
+                    <span class="showcase-caption">Worker History Log</span>
+                  </div>
+                  <div class="showcase-item is-tablet">
+                    <div class="showcase-frame">
+                      <img class="showcase-img" src="./FarmERP/tablet_dashboard_screen.png" alt="FarmERP tablet layout showing operations dashboard" loading="lazy" decoding="async">
+                    </div>
+                    <span class="showcase-caption">Tablet · Operations Dashboard</span>
+                  </div>
+                  <div class="showcase-item is-tablet">
+                    <div class="showcase-frame">
+                      <img class="showcase-img" src="./FarmERP/tablet_contracts_screen.png" alt="FarmERP tablet layout showing field contracts management" loading="lazy" decoding="async">
+                    </div>
+                    <span class="showcase-caption">Tablet · Field Contracts</span>
+                  </div>
+                  <div class="showcase-item is-tablet">
+                    <div class="showcase-frame">
+                      <img class="showcase-img" src="./FarmERP/tablet_login_screen.png" alt="FarmERP tablet layout showing login screen" loading="lazy" decoding="async">
+                    </div>
+                    <span class="showcase-caption">Tablet · Authentication View</span>
+                  </div>
+                </div>
               </div>
             </article>
+
+            <!-- 3. StudyCounter (In Progress) -->
+            <article class="card project-card">
+              <div class="project-top">
+                <div>
+                  <div style="margin-bottom:0.6rem; display: flex; align-items: center; flex-wrap: wrap; gap: var(--space-2);">
+                    <span class="wip-badge"><span class="wip-dot"></span>In Progress</span>
+                    <span class="store-notice-badge">Soon on Google Play and App Store</span>
+                  </div>
+                  <h3 class="project-title">StudyCounter</h3>
+                  <p class="project-description">Gamified focus tracker mobile client developed with a team, consuming a teammate's NestJS backend API. Currently in active development — soon on Google Play and App Store.</p>
+                </div>
+                <div class="project-date">Sep 2026 – Present</div>
+              </div>
+              <ul class="project-points">
+                <li>
+                  <strong>Mobile Client Development:</strong> Developed the complete Flutter mobile client (6 modules, 13 screens) against a teammate's NestJS API using Feature-First Clean Architecture and GetIt.
+                </li>
+                <li>
+                  <strong>Sync & Offline Analytics:</strong> Built a mutex-guarded outbox with temporary-ID remapping, and implemented stale-while-revalidate analytics in BLoC that stay visible offline during network disconnects.
+                </li>
+                <li>
+                  <strong>Security & Isolation:</strong> Implemented a single-flight JWT refresh interceptor, box-per-user Hive data isolation, and guest-mode request guards.
+                </li>
+                <li>
+                  <strong>Anti-Cheat Timer & UI:</strong> Used WidgetsBindingObserver to detect app backgrounding and penalize focus timers. Built a glass-style UI with Light/Dark/OLED themes and fl_chart analytics.
+                </li>
+              </ul>
+              <div class="tech-badges" aria-label="StudyCounter tech stack">
+                <span class="tech-badge">Flutter</span>
+                <span class="tech-badge">Dart</span>
+                <span class="tech-badge">BLoC</span>
+                <span class="tech-badge">Clean Architecture</span>
+                <span class="tech-badge">Hive</span>
+                <span class="tech-badge">Dio</span>
+                <span class="tech-badge">Flutter Secure Storage</span>
+                <span class="tech-badge">fl_chart</span>
+              </div>
+              <div class="project-actions-row">
+                <a class="project-link" href="https://github.com/Ch1b11/StudyCounter-Public" target="_blank" rel="noopener noreferrer">GitHub Repository ↗</a>
+              </div>
+
+              <!-- Dedicated StudyCounter Showcase Gallery -->
+              <div class="showcase-gallery-wrap">
+                <div class="showcase-header">
+                  <div class="showcase-header-left">
+                    <span class="showcase-label">Mobile App Screens (4 Screens)</span>
+                    <span class="showcase-hint">← Swipe or scroll horizontally →</span>
+                  </div>
+                  <div class="gallery-nav-buttons" aria-label="StudyCounter gallery controls">
+                    <button type="button" class="gallery-btn" data-gallery="gallery-studycounter" data-dir="-1" aria-label="Previous StudyCounter screenshot">
+                      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+                    </button>
+                    <button type="button" class="gallery-btn" data-gallery="gallery-studycounter" data-dir="1" aria-label="Next StudyCounter screenshot">
+                      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="showcase-scroll" id="gallery-studycounter" tabindex="0" role="region" aria-label="StudyCounter App Screenshots">
+                  <div class="showcase-item">
+                    <div class="showcase-frame">
+                      <img class="showcase-img" src="./StudyCounter/dashboard_screen.png" alt="StudyCounter analytics dashboard displaying study statistics and progress charts" loading="lazy" decoding="async">
+                    </div>
+                    <span class="showcase-caption">Focus Analytics</span>
+                  </div>
+                  <div class="showcase-item">
+                    <div class="showcase-frame">
+                      <img class="showcase-img" src="./StudyCounter/timer_screen.png" alt="StudyCounter countdown focus timer with Pomodoro session in progress" loading="lazy" decoding="async">
+                    </div>
+                    <span class="showcase-caption">Focus Timer</span>
+                  </div>
+                  <div class="showcase-item">
+                    <div class="showcase-frame">
+                      <img class="showcase-img" src="./StudyCounter/timer_screen2.png" alt="StudyCounter focus session completion screen celebrating focus milestones" loading="lazy" decoding="async">
+                    </div>
+                    <span class="showcase-caption">Session Milestones</span>
+                  </div>
+                  <div class="showcase-item">
+                    <div class="showcase-frame">
+                      <img class="showcase-img" src="./StudyCounter/login_screen.png" alt="StudyCounter login screen with email authentication and guest mode access" loading="lazy" decoding="async">
+                    </div>
+                    <span class="showcase-caption">Login & Guest Mode</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- 4. Herfa (Always Last) -->
+            <article class="card project-card">
+              <div class="project-top">
+                <div>
+                  <div style="margin-bottom:0.6rem"><span class="badge">Team Lead · Mobile Client</span></div>
+                  <h3 class="project-title">Herfa</h3>
+                  <p class="project-description">Two-role home maintenance marketplace client for customers and craftsmen, built during my Tamkin team-lead internship.</p>
+                </div>
+                <div class="project-date">Aug 2026 – Nov 2026</div>
+              </div>
+              <ul class="project-points">
+                <li>
+                  <strong>Two-Role Architecture:</strong> Built a two-role (customer and craftsman) Flutter client across 20 screens with Feature-First Clean Architecture, GetIt, 15 BLoCs/Cubits, and GoRouter shell routes with auth and role guards.
+                </li>
+                <li>
+                  <strong>Mutex-Guarded Sync Engine:</strong> Engineered a Hive outbox with a mutex-guarded FIFO queue, temporary-UUID remapping across dependent mutations, and automatic abort of orphaned child requests.
+                </li>
+                <li>
+                  <strong>Real-Time Messaging:</strong> Built Socket.IO real-time messaging with typing indicators, optimistic message reconciliation, cached-first loading, and voice-note recording with waveform playback.
+                </li>
+                <li>
+                  <strong>Security & Quality:</strong> Implemented single-flight token refresh in a Dio interceptor (queued concurrent 401s) with Keystore/Keychain token storage. Verified across 89 test files using bloc_test and mocktail.
+                </li>
+              </ul>
+              <div class="tech-badges" aria-label="Herfa tech stack">
+                <span class="tech-badge">Flutter</span>
+                <span class="tech-badge">Dart</span>
+                <span class="tech-badge">BLoC</span>
+                <span class="tech-badge">Clean Architecture</span>
+                <span class="tech-badge">Hive</span>
+                <span class="tech-badge">Dio</span>
+                <span class="tech-badge">Socket.IO</span>
+                <span class="tech-badge">GoRouter</span>
+                <span class="tech-badge">GetIt</span>
+                <span class="tech-badge">bloc_test</span>
+              </div>
+              <div class="project-actions-row">
+                <a class="project-link" href="https://github.com/Ch1b11/Herfa-Public" target="_blank" rel="noopener noreferrer">GitHub Repository ↗</a>
+              </div>
+
+              <!-- Dedicated Herfa Showcase Gallery -->
+              <div class="showcase-gallery-wrap">
+                <div class="showcase-header">
+                  <div class="showcase-header-left">
+                    <span class="showcase-label">Mobile App Screens (4 Screens)</span>
+                    <span class="showcase-hint">← Swipe or scroll horizontally →</span>
+                  </div>
+                  <div class="gallery-nav-buttons" aria-label="Herfa gallery controls">
+                    <button type="button" class="gallery-btn" data-gallery="gallery-herfa" data-dir="-1" aria-label="Previous Herfa screenshot">
+                      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+                    </button>
+                    <button type="button" class="gallery-btn" data-gallery="gallery-herfa" data-dir="1" aria-label="Next Herfa screenshot">
+                      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="showcase-scroll" id="gallery-herfa" tabindex="0" role="region" aria-label="Herfa App Screenshots">
+                  <div class="showcase-item">
+                    <div class="showcase-frame">
+                      <img class="showcase-img" src="./Herfa/dashboard_screen.png" alt="Herfa customer home screen showing home maintenance categories" loading="lazy" decoding="async">
+                    </div>
+                    <span class="showcase-caption">Customer Marketplace</span>
+                  </div>
+                  <div class="showcase-item">
+                    <div class="showcase-frame">
+                      <img class="showcase-img" src="./Herfa/craftsman_dashboard_screen.png" alt="Herfa craftsman dashboard displaying active job requests and earnings" loading="lazy" decoding="async">
+                    </div>
+                    <span class="showcase-caption">Craftsman Workspace</span>
+                  </div>
+                  <div class="showcase-item">
+                    <div class="showcase-frame">
+                      <img class="showcase-img" src="./Herfa/my_jobs_screen.png" alt="Herfa maintenance jobs tracking screen showing active and completed orders" loading="lazy" decoding="async">
+                    </div>
+                    <span class="showcase-caption">Jobs Tracking</span>
+                  </div>
+                  <div class="showcase-item">
+                    <div class="showcase-frame">
+                      <img class="showcase-img" src="./Herfa/ai_diag_screen.png" alt="Herfa maintenance issue preliminary consultation and diagnosis UI" loading="lazy" decoding="async">
+                    </div>
+                    <span class="showcase-caption">Issue Diagnosis UI</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal" id="experience">
+        <div class="container">
+          <div class="section-label">[ Experience ]</div>
+          <div class="section-header">
+            <h2 class="section-title">Experience</h2>
+            <p class="section-subtitle">Internships and technical leadership delivering production Flutter mobile applications, coordinating team workflows, and integrating robust services.</p>
+          </div>
+          <div class="timeline">
+
+            <!-- 1. Tamkin (Most recent) -->
+            <div class="timeline-item">
+              <div class="timeline-marker" aria-hidden="true"></div>
+              <article class="card timeline-card">
+                <div class="timeline-header">
+                  <div>
+                    <h3 class="timeline-role">Team Lead &amp; Flutter Developer</h3>
+                    <div class="timeline-company">
+                      <span>Tamkin</span>
+                      <span class="timeline-location">· Remote</span>
+                    </div>
+                  </div>
+                  <div class="timeline-date-wrap">
+                    <span class="timeline-date">Aug 2026 – Nov 2026</span>
+                    <span class="timeline-type-badge">Project-Based Internship</span>
+                  </div>
+                </div>
+                <ul class="timeline-points">
+                  <li>
+                    <strong>Team Leadership &amp; Monorepo Management:</strong> Managed a cross-functional team building Herfa, a two-role home-services platform. Hosted the project monorepo (mobile, web, and backend) and coordinated code merging into main.
+                  </li>
+                  <li>
+                    <strong>Git Workflow &amp; Weekly Reviews:</strong> Established Git workflow with pull request reviews, ran team meetings, and presented progress in weekly reviews with senior engineers, incorporating their architectural and code quality feedback.
+                  </li>
+                  <li>
+                    <strong>Mobile Client Ownership:</strong> Owned the Flutter mobile client architecture and implementation (Feature-First Clean Architecture, BLoC/Cubit, Hive offline outbox queue with UUID remapping, and real-time Socket.IO chat).
+                  </li>
+                </ul>
+                <div class="tech-badges" aria-label="Tamkin technologies used">
+                  <span class="tech-badge">Flutter</span>
+                  <span class="tech-badge">Dart</span>
+                  <span class="tech-badge">BLoC</span>
+                  <span class="tech-badge">Clean Architecture</span>
+                  <span class="tech-badge">Nx Monorepo</span>
+                  <span class="tech-badge">Git &amp; PR Reviews</span>
+                  <span class="tech-badge">Socket.IO</span>
+                  <span class="tech-badge">Hive</span>
+                  <span class="tech-badge">Team Leadership</span>
+                </div>
+              </article>
+            </div>
+
+            <!-- 2. TransIT -->
+            <div class="timeline-item">
+              <div class="timeline-marker" aria-hidden="true"></div>
+              <article class="card timeline-card">
+                <div class="timeline-header">
+                  <div>
+                    <h3 class="timeline-role">Software Development Intern (Flutter)</h3>
+                    <div class="timeline-company">
+                      <span>TransIT (Information Technology for Transportation)</span>
+                      <span class="timeline-location">· Nasr City, Cairo</span>
+                    </div>
+                  </div>
+                  <div class="timeline-date-wrap">
+                    <span class="timeline-date">Jun – Sep, 2024 &amp; 2025</span>
+                    <span class="timeline-type-badge">Internship</span>
+                  </div>
+                </div>
+                <ul class="timeline-points">
+                  <li>
+                    <strong>Summer 2025 — BRT Mobile App Contribution:</strong> Contributed to the mobile application for Egypt’s Bus Rapid Transit (BRT) covering route management and ticketing; integrated REST APIs and Firebase services within an agile development team.
+                  </li>
+                  <li>
+                    <strong>Summer 2024 — Production UI Development:</strong> Built and styled responsive Flutter UI screens for production applications and initiated the REST API integration layer.
+                  </li>
+                  <li>
+                    <strong>Cross-Device Debugging:</strong> Debugged layout issues across a range of Android screen sizes.
+                  </li>
+                </ul>
+                <div class="tech-badges" aria-label="TransIT technologies used">
+                  <span class="tech-badge">Flutter</span>
+                  <span class="tech-badge">Dart</span>
+                  <span class="tech-badge">REST APIs</span>
+                  <span class="tech-badge">Firebase</span>
+                  <span class="tech-badge">Cross-Device Debugging</span>
+                  <span class="tech-badge">Android</span>
+                </div>
+              </article>
+            </div>
 
           </div>
         </div>
@@ -495,9 +1221,10 @@ remote state consistent without full re-fetches.
 
       <section class="section reveal" id="credentials">
         <div class="container">
-          <div class="section-label">[ CREDENTIALS ]</div>
+          <div class="section-label">[ Credentials ]</div>
           <div class="section-header">
-            <h2 class="section-title">Education & Training</h2>
+            <h2 class="section-title">Credentials &amp; Training</h2>
+            <p class="section-subtitle">Academic foundation in Computer Science, specialized mobile engineering curriculum, and verified English proficiency.</p>
           </div>
           <div class="credentials-grid">
             <article class="card panel">
@@ -505,47 +1232,73 @@ remote state consistent without full re-fetches.
                 <div>
                   <h3 class="meta-title">Education</h3>
                   <div class="meta-list">
-                    <div class="meta-item"><span class="meta-label">Degree</span><span class="meta-value">Bachelor of Science in Computer Science</span></div>
-                    <div class="meta-item"><span class="meta-label">University</span><span class="meta-value">CHI, Cairo</span></div>
-                    <div class="meta-item"><span class="meta-label">Duration</span><span class="meta-value">2022 – 2026</span></div>
-                    <div class="meta-item"><span class="meta-label">Coursework</span><span class="meta-value">Data Structures, Software Architecture, Database Management, Artificial Intelligence, OOP</span></div>
+                    <div class="meta-item">
+                      <span class="meta-label">Degree</span>
+                      <span class="meta-value">Bachelor of Science in Computer Science</span>
+                    </div>
+                    <div class="meta-item">
+                      <span class="meta-label">University</span>
+                      <span class="meta-value">CHI, Cairo</span>
+                    </div>
+                    <div class="meta-item">
+                      <span class="meta-label">Duration</span>
+                      <span class="meta-value">2022 – 2026</span>
+                    </div>
+                    <div class="meta-item">
+                      <span class="meta-label">Core Coursework</span>
+                      <span class="meta-value">Software Architecture, Operating Systems, Computer Networks, Database Management, Data Structures &amp; Algorithms, Software Engineering</span>
+                    </div>
                   </div>
                 </div>
+
                 <div>
-                  <h3 class="meta-title">Experience</h3>
+                  <h3 class="meta-title">Certifications</h3>
                   <div class="meta-list">
-                    <div class="meta-item"><span class="meta-label">Role</span><span class="meta-value">Software Development Intern — Flutter</span></div>
-                    <div class="meta-item"><span class="meta-label">Company</span><span class="meta-value">TransIT, Nasr City, Cairo</span></div>
-                    <div class="meta-item"><span class="meta-label">Period</span><span class="meta-value">Summer 2024 & Summer 2025</span></div>
-                    <div class="meta-item"><span class="meta-label">Highlights</span><span class="meta-value">REST API integration, 60 FPS rendering on low-end devices, agile team delivery</span></div>
+                    <div class="meta-item">
+                      <span class="meta-label">English Proficiency</span>
+                      <span class="meta-value">
+                        EF SET English Certificate — <strong>69/100 · C1 Advanced</strong>
+                      </span>
+                      <a class="meta-link" href="https://cert.efset.org/en/H6STKM" target="_blank" rel="noopener noreferrer">
+                        Verify EF SET Certificate ↗
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
             </article>
+
             <aside class="card panel">
               <div class="credentials-stack">
                 <div>
                   <h3 class="meta-title">Technical Training</h3>
                   <div class="meta-list">
-                    <div class="meta-item"><span class="meta-label">Provider</span><span class="meta-value">Tharwat Samy Flutter Specialization</span></div>
-                    <div class="meta-item"><span class="meta-label">Course 1</span><span class="meta-value">Flutter & Dart Fundamentals — 50+ hours</span></div>
-                    <div class="meta-item"><span class="meta-label">Course 2</span><span class="meta-value">Responsive & Adaptive UI Design</span></div>
-                    <div class="meta-item"><span class="meta-label">Course 3</span><span class="meta-value">Advanced Bloc and MVVM Architecture Patterns</span></div>
+                    <div class="meta-item">
+                      <span class="meta-label">Specialization</span>
+                      <span class="meta-value">Tharwat Samy Flutter Specialization — <strong>80+ hours</strong></span>
+                    </div>
+                    <div class="meta-item">
+                      <span class="meta-label">Curriculum</span>
+                      <span class="meta-value">Flutter &amp; Dart, BLoC &amp; MVVM Architecture Patterns, Responsive &amp; Adaptive UI Design</span>
+                    </div>
+                    <div class="meta-item">
+                      <span class="meta-label">Networking Track</span>
+                      <span class="meta-value">CCNA Crash Course — Networking Fundamentals</span>
+                    </div>
                   </div>
                 </div>
+
                 <div>
                   <h3 class="meta-title">Languages</h3>
                   <div class="meta-list">
-                    <div class="meta-item"><span class="meta-label">Arabic</span><span class="meta-value">Native</span></div>
+                    <div class="meta-item">
+                      <span class="meta-label">Arabic</span>
+                      <span class="meta-value">Native</span>
+                    </div>
                     <div class="meta-item">
                       <span class="meta-label">English</span>
-                      <span class="meta-value">
-                        C1 — Professional working proficiency 
-                        <a href="https://cert.efset.org/en/H6STKM" target="_blank" rel="noopener noreferrer" style="color: #1a73e8; text-decoration: none; font-weight: 500;">
-                          (EF SET Certificate)
-                        </a>
-                      </span>
-                    </div>                
+                      <span class="meta-value">C1 Advanced — Professional working proficiency</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -559,11 +1312,11 @@ remote state consistent without full re-fetches.
           <div class="section-label">[ Contact ]</div>
           <div class="section-header">
             <h2 class="section-title">Contact</h2>
-            <p class="section-subtitle">Open to Flutter developer roles, internships, and collaboration on mobile products.</p>
+            <p class="section-subtitle">Open to mobile developer (Flutter) roles, internships, and collaboration on mobile products.</p>
           </div>
           <div class="contact-grid">
             <article class="card panel contact-copy">
-              <p class="copy">If you're building a mobile product and need a Flutter developer who thinks seriously about architecture, state management, and real-device performance — let's connect. Flutter Developer · Available for full-time opportunities </p>
+              <p class="copy">If you're building a mobile product and need a mobile developer (Flutter) who thinks seriously about architecture, state management, and offline behavior — let's connect. Currently available for full-time opportunities.</p>
             </article>
             <aside class="card panel">
               <ul class="contact-links">
@@ -597,13 +1350,13 @@ remote state consistent without full re-fetches.
         </div>
       </section>
 
-      <div class="modal-overlay" id="video-modal" aria-hidden="true" role="dialog" aria-modal="true">
+      <div class="modal-overlay" id="video-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="GraphSphere Demo Video">
         <div class="modal-content">
-          <button class="modal-close" id="close-video-modal" aria-label="Close modal">
+          <button type="button" class="modal-close" id="close-video-modal" aria-label="Close modal">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
           </button>
           <div class="video-container">
-            <iframe src="https://youtu.be/t2p6JgNmj5c" title="GraphSphere Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe src="https://www.youtube-nocookie.com/embed/t2p6JgNmj5c" title="GraphSphere Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         </div>
       </div>
@@ -612,7 +1365,7 @@ remote state consistent without full re-fetches.
 
     <footer class="footer">
       <div class="container">
-        <div class="footer-inner"><span class="footer-prompt">~/mohammed $</span> clean state, fast widgets, ships on time.</div>
+        <div class="footer-inner"><span class="footer-prompt">~/mohammed $</span> clean state, offline-first, fewer spinners.</div>
       </div>
     </footer>
   </div>
@@ -625,7 +1378,7 @@ remote state consistent without full re-fetches.
       const navMenu = document.getElementById("nav-menu");
       const navLinks = Array.from(document.querySelectorAll(".nav-link"));
       const heroSection = document.getElementById("top");
-      const sectionIds = ["about", "projects", "credentials", "contact"];
+      const sectionIds = ["about", "projects", "experience", "credentials", "contact"];
       const sections = sectionIds.map((id) => document.getElementById(id));
       const themeStorageKey = "portfolio-theme";
       const typingTarget = document.getElementById("typing-text");
@@ -679,7 +1432,7 @@ remote state consistent without full re-fetches.
       });
 
       const typingPhrases = [
-        "I build reliable Flutter apps — 60 FPS on every device, clean architecture by default."
+        "I build reliable Flutter apps with clean architecture, offline-first sync, and responsive interfaces."
       ];
       let phraseIndex = 0, charIndex = 0, deleting = false;
       const typeLoop = () => {
@@ -760,7 +1513,10 @@ remote state consistent without full re-fetches.
           const tw = 0.55+((Math.sin(animTime*0.0025+s.tw)+1)/2)*0.45;
           ctx.beginPath(); ctx.fillStyle=`rgba(${rgb},${op*s.depth*tw})`; ctx.arc(x<0?x+vw:x,y,s.size,0,Math.PI*2); ctx.fill();
         }
-        animTime += 16; rafId = requestAnimationFrame(drawStars);
+        if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          animTime += 16;
+          rafId = requestAnimationFrame(drawStars);
+        }
       };
       const refresh = ({ restart=false }={}) => {
         ctx.clearRect(0,0,vw,vh); buildStars();
@@ -785,6 +1541,7 @@ remote state consistent without full re-fetches.
         videoModal.classList.add("is-open");
         videoModal.setAttribute("aria-hidden", "false");
         document.body.style.overflow = "hidden"; // Prevent body scrolling
+        if (closeVideoBtn) closeVideoBtn.focus();
       };
 
       const closeModal = () => {
@@ -797,6 +1554,7 @@ remote state consistent without full re-fetches.
         if (iframe) {
           iframe.src = iframeSrc;
         }
+        if (openVideoBtn) openVideoBtn.focus();
       };
 
       if (openVideoBtn && videoModal && closeVideoBtn) {
@@ -817,6 +1575,18 @@ remote state consistent without full re-fetches.
           }
         });
       }
+
+      // Gallery horizontal scroll controls
+      document.querySelectorAll(".gallery-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const targetId = btn.getAttribute("data-gallery");
+          const dir = parseInt(btn.getAttribute("data-dir") || "1", 10);
+          const scrollContainer = document.getElementById(targetId);
+          if (scrollContainer) {
+            scrollContainer.scrollBy({ left: dir * 260, behavior: "smooth" });
+          }
+        });
+      });
     })();
   </script>
 </body>
