@@ -552,6 +552,7 @@
       .about-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 760px) {
+      .reveal { opacity: 1 !important; transform: none !important; }
       .menu-toggle { display: inline-flex; }
       .nav-menu { position: absolute; top: calc(100% + 0.75rem); left: 1rem; right: 1rem; flex-direction: column; align-items: stretch; gap: var(--space-3); padding: var(--space-4); border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--bg-card); box-shadow: 0 16px 40px var(--shadow-elevated); opacity: 0; visibility: hidden; transform: translateY(-0.5rem); pointer-events: none; }
       .nav-menu.open { opacity: 1; visibility: visible; transform: translateY(0); pointer-events: auto; }
@@ -1453,33 +1454,26 @@
 
       const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("is-visible"); revealObserver.unobserve(e.target); } });
-      }, { threshold: 0.18, rootMargin: "0px 0px -40px 0px" });
+      }, { threshold: 0.02, rootMargin: "0px 0px -20px 0px" });
       revealItems.forEach((item) => { if (!item.classList.contains("is-visible")) revealObserver.observe(item); });
 
-      const visibilityMap = new Map();
-      sectionIds.forEach((id) => visibilityMap.set(id, 0));
-      let heroVisible = false;
       const applyActiveLink = () => {
-        let activeId = "", bestRatio = 0;
-        visibilityMap.forEach((ratio, id) => { if (ratio >= 0.3 && ratio >= bestRatio) { bestRatio = ratio; activeId = id; } });
-        if (heroVisible && bestRatio < 0.3) activeId = "";
+        let activeId = "";
+        for (const sec of sections) {
+          if (!sec) continue;
+          const rect = sec.getBoundingClientRect();
+          if (rect.top <= 200 && rect.bottom >= 120) {
+            activeId = sec.id;
+            break;
+          }
+        }
         navLinks.forEach((link) => {
           const isActive = link.getAttribute("href") === `#${activeId}`;
           link.classList.toggle("active", isActive);
           if (isActive) link.setAttribute("aria-current", "page"); else link.removeAttribute("aria-current");
         });
       };
-      const sectionObserver = new IntersectionObserver((entries) => {
-        entries.forEach((e) => { visibilityMap.set(e.target.id, e.isIntersecting ? e.intersectionRatio : 0); });
-        applyActiveLink();
-      }, { threshold: 0.3 });
-      const heroObserver = new IntersectionObserver((entries) => {
-        const [e] = entries;
-        heroVisible = Boolean(e && e.isIntersecting && e.intersectionRatio >= 0.3);
-        applyActiveLink();
-      }, { threshold: 0.3 });
-      sections.forEach((s) => sectionObserver.observe(s));
-      heroObserver.observe(heroSection);
+      window.addEventListener("scroll", applyActiveLink, { passive: true });
       applyActiveLink();
 
       // Starfield
